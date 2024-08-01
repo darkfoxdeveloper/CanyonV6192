@@ -9,6 +9,7 @@
 *.user
 *.userosscache
 *.sln.docstates
+**/patches/
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
@@ -396,3 +397,10 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+/src/Canyon.Identity.Service/rsakey.json
+/src/Canyon.Identity.Service/keys/
+
+/sql/data
+
+ini
+map

@@ -1,0 +1,53 @@
+{
+    // Use IntelliSense to find out which attributes exist for C# debugging
+    // Use hover for the description of the existing attributes
+    // For further information visit https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md
+    "version": "0.2.0",
+    "configurations": [
+         {
+             "name": "Launch Account",
+             "type": "coreclr",
+             "request": "launch",
+             "preLaunchTask": "build",
+             "program": "${workspaceFolder}/src/Bin/net7.0/Canyon.Login.dll",
+             "args": [],
+             "cwd": "${workspaceFolder}/src/Canyon.Login",
+             "console": "externalTerminal",
+             "stopAtEntry": false,
+         },
+         {
+             "name": "Launch Game",
+             "type": "coreclr",
+             "request": "launch",
+             "preLaunchTask": "build",
+             "program": "${workspaceFolder}/src/Bin/net7.0/Canyon.Game.dll",
+             "args": [],
+             "cwd": "${workspaceFolder}/src/Canyon.Game",
+             "console": "externalTerminal",
+             "stopAtEntry": false,
+         },
+         {
+            "name": "Launch NPC",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/src/Bin/net7.0/Canyon.Ai.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/Canyon.Ai",
+            "console": "externalTerminal",
+            "stopAtEntry": false,
+         },
+         {
+             "name": ".NET Core Attach",
+             "type": "coreclr",
+             "request": "attach",
+             "processId": "${command:pickProcess}"
+         },
+     ],
+     "compounds": [
+         {
+             "name": "Launch Canyon",
+             "configurations": ["Launch Account", "Launch Game", "Launch NPC"],
+         }
+     ]
+ }

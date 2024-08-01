@@ -1,0 +1,32 @@
+﻿{
+  "RealmID": "94390aa0-c75d-11ed-9586-0050560401e2",
+  "RealmName": "Dark",
+  "Socket": {
+    "Address": "0.0.0.0",
+    "Port": 5186,
+    "UserName": "K0VHVC0WYnwFoQ7CR5ckc2VRzoHvrq5EGFgdInLY3lg=",
+    "Password": "3bvbswqaPlPHu7IyZBkvSDuaZFQpQitYKId+f8YAD5U=",
+    "AesKey": "7oD2bihwK7uQLmM5Q6c6SodWmvNPdxgC",
+    "AesIV": "6fv44hjpBnD4dg0G"
+  },
+  "Rpc": {
+    "Address": "172.21.0.6",
+    "Port": 4351,
+    "Username": "qw3s3W2ERwWeA2sD",
+    "Password": "j2W2J3h2iWE6ERsA"
+  },
+  "Web": {
+    "Ping": "http://localhost:8082/Login"
+  },
+  "MySQLDumpPath": "../../dumps",
+  "Database": {
+    "Hostname": "canyon-db",
+    "Username": "root",
+    "Password": "970E95B5FFEEE",
+    "Schema": "cq",
+    "Port": 3306
+  },
+  "Folders": {
+    "GameServer": "../Bin/net7.0/"
+  }
+}

@@ -1,0 +1,130 @@
+version: '3.8'
+
+networks:
+  backend:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.20.0.0/16  # Define a custom subnet for the backend network
+  
+  frontend:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.21.0.0/16  # Define a custom subnet for the frontend network
+
+services:
+  db:
+    container_name: canyon-db
+    image: mariadb
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: 970E95B5FFEEE
+    networks:
+      backend:
+        ipv4_address: 172.20.0.3  # Assign a specific IP address in the backend network
+      frontend:
+        ipv4_address: 172.21.0.3  # Assign a specific IP address in the frontend network
+    volumes:
+      - ./sql/data:/var/lib/mysql
+    ports:
+      - "3306:3306" 
+    command: --max_allowed_packet=64M
+
+  account:
+    container_name: canyon-account
+    image: canyon/server
+    build: 
+      context: .
+      args:
+        - debug
+    networks:
+      backend:
+        ipv4_address: 172.20.0.22  # Assign a specific IP address in the backend network
+      frontend:
+        ipv4_address: 172.21.0.22  # Assign a specific IP address in the frontend network
+    ports:
+      - 9958:9958
+    depends_on:
+      - db
+    entrypoint: ["/wait-for-it.sh", "canyon-db:3306", "--"]
+    command: ["dotnet", "./Canyon.Login/Canyon.Login.dll", "/Database:Hostname=canyon-db"]
+    environment:
+      - MACHINE_ENV=docker
+      
+  game:
+    image: canyon/server
+    build: 
+      context: .
+      args:
+        - debug
+    networks:
+      backend:
+        ipv4_address: 172.20.0.4  # Assign a specific IP address in the backend network
+      frontend:
+        ipv4_address: 172.21.0.4  # Assign a specific IP address in the frontend network
+    ports:
+      - 5816:5816
+    depends_on:
+      - db
+    entrypoint: ["/wait-for-it.sh", "canyon-db:3306", "--"]
+    command: ["dotnet", "./Canyon.Game/Canyon.Game.dll", "/Database:Hostname=canyon-db"]
+    environment:
+      - MACHINE_ENV=docker
+
+  ai:
+    image: canyon/server
+    build: 
+      context: .
+      args:
+        - debug
+    networks:
+      backend:
+        ipv4_address: 172.20.0.5  # Assign a specific IP address in the backend network
+      frontend:
+        ipv4_address: 172.21.0.5  # Assign a specific IP address in the frontend network
+    depends_on:
+      - db
+    entrypoint: ["/wait-for-it.sh", "canyon-db:3306", "--"]
+    command: ["dotnet", "./Canyon.Ai/Canyon.Ai.dll", "/Database:Hostname=canyon-db"]
+    environment:
+      - MACHINE_ENV=docker
+
+  auto-patcher-server:
+    container_name: canyon-auto-patcher
+    build: 
+      context: ./src/auto-patcher-server
+      dockerfile: Dockerfile  # This line is optional if your file is named Dockerfile
+    volumes:
+    - ./src/auto-patcher-server/patches:/app/patches  # Corrected path
+    networks:
+      frontend:
+        ipv4_address: 172.21.0.10  # Assign a specific IP address in the frontend network
+    ports:
+      - "1338:1338"  # Map the port to the host
+    depends_on:
+      - db
+      - account
+      - game
+      - ai
+    environment:
+      - NODE_ENV=production
+    command: ["node", "server.js"]  # Replace with your start command
+
+  # gm:
+  #   image: canyon/server
+  #   build: 
+  #     context: .
+  #     args:
+  #       - debug
+  #   networks:
+  #     backend:
+  #       ipv4_address: 172.20.0.6  # Assign a specific IP address in the backend network
+  #     frontend:
+  #       ipv4_address: 172.21.0.6  # Assign a specific IP address in the frontend network
+  #   depends_on:
+  #     - db
+  #   entrypoint: ["/wait-for-it.sh", "canyon-db:3306", "--"]
+  #   command: ["dotnet", "./Canyon.GM.Server/Canyon.GM.Server.dll", "/Database:Hostname=canyon-db"]

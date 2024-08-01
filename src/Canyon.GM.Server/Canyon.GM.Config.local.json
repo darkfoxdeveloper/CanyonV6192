@@ -1,0 +1,32 @@
+﻿{
+  "RealmID": "94390aa0-c75d-11ed-9586-0050560401e2",
+  "RealmName": "Dark",
+  "Socket": {
+    "Address": "127.0.0.1",
+    "Port": 8650,
+    "UserName": "eyVSzmc0EQ7GQlrY4xQJaj1w3pYOdePEG9Dw/xVBzGo=",
+    "Password": "Y3TaYRH/2yIyb2T9htxnCNU2ozevkWfym7rMfejvKvE=",
+    "AesKey": "7oD2bihwK7uQLmM5Q6c6SodWmvNPdxgC",
+    "AesIV": "6fv44hjpBnD4dg0G"
+  },
+  "Rpc": {
+    "Address": "127.0.0.1",
+    "Port": 4351,
+    "Username": "qw3s3W2ERwWeA2sD",
+    "Password": "j2W2J3h2iWE6ERsA"
+  },
+  "Web": {
+    "Ping": "http://localhost:8082/Login"
+  },
+  "MySQLDumpPath": "../../dumps",
+  "Database": {
+    "Hostname": "localhost",
+    "Username": "root",
+    "Password": "970E95B5FFEEE",
+    "Schema": "cq",
+    "Port": 3306
+  },
+  "Folders": {
+    "GameServer": "../../src/Bin/net7.0/"
+  }
+}

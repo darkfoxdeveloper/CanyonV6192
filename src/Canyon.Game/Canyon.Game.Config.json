@@ -1,0 +1,58 @@
+{
+	"Database": {
+		"Hostname": "canyon-db",
+		"Username": "root",
+		"Password": "970E95B5FFEEE",
+		"Schema": "cq",
+		"Port": 3306
+	  },
+	"Realm": {
+		"ServerId": "94390aa0-c75d-11ed-9586-0050560401e2",
+		"Name": "Dark",
+		"IPAddress": "0.0.0.0",
+		"Port": 5816,
+		"MaxOnlinePlayers": 1500,
+		"Username": "qw3s3W2ERwWeA2sD",
+		"Password": "j2W2J3h2iWE6ERsA",
+		"ReleaseDate": "2023-01-01T00:00:00",
+
+		"Processors": 4
+	},
+	"Login": {
+		"IPAddress": "172.21.0.22",
+		"Port": 9921
+	},
+	"Ai": {
+		"IPAddress": "172.21.0.4",
+		"Port": 8650,
+		"Username": "qw3s3W2ERwWeA2sD",
+		"Password": "j2W2J3h2iWE6ERsA"
+	},
+	"MaintenanceSchedule": [
+		{
+			"DayOfWeek": 1,
+			"Time": "00:00:00",
+			"WarningMinutes": 5
+		},
+		{
+			"DayOfWeek": 3,
+			"Time": "00:00:00",
+			"WarningMinutes": 5
+		},
+		{
+			"DayOfWeek": 5,
+			"Time": "00:00:00",
+			"WarningMinutes": 5
+		}
+	],
+	"Piglet": {
+		"IPAddress": "172.21.0.6",
+		"Port": 4351,
+		"Username": "qw3s3W2ERwWeA2sD",
+		"Password": "j2W2J3h2iWE6ERsA"
+	},
+	"Auth": {
+		"SharedKey": "7oD2bihwK7uQLmM5Q6c6SodWmvNPdxgC",
+		"SharedIV": "6fv44hjpBnD4dg0G"
+	}
+}

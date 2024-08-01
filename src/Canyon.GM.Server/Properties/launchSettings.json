@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Canyon.GM.Server": {
+      "commandName": "Project",
+      "commandLineArgs": "Database:Hostname=localhost Database:Username=root Database:Password=1234 Database:Schema=cq6135 Database:Port=3306 Ftp:Hostname= Ftp:Username= Ftp:Password="
+    }
+  }
+}

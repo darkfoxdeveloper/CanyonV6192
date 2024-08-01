@@ -1,0 +1,21 @@
+version: '3.8'
+
+networks:
+  backend:
+    driver: bridge
+  frontend:
+    driver: bridge
+
+services:
+  db:
+    container_name: canyon-db
+    image: mariadb
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: 970E95B5FFEEE
+    networks:
+      - backend
+    volumes:
+      - ./sql/data:/var/lib/mysql
+    ports:
+      - "3306:3306"  

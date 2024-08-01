@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+    }
+    .container {
+      width: 90%;
+      margin: auto;
+      overflow: hidden;
+    }
+    header {
+      background: #50b3a2;
+      color: white;
+      padding-top: 30px;
+      min-height: 70px;
+      border-bottom: #e8491d 3px solid;
+    }
+    header a {
+      color: #ffffff;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 16px;
+    }
+    header ul {
+      padding: 0;
+      list-style: none;
+    }
+    header li {
+      float: left;
+      display: inline;
+      padding: 0 20px 0 20px;
+    }
+    header #branding {
+      float: left;
+    }
+    header #branding h1 {
+      margin: 0;
+    }
+    header nav {
+      float: right;
+      margin-top: 10px;
+    }
+    header .highlight, header .current a {
+      color: #e8491d;
+      font-weight: bold;
+    }
+    header a:hover {
+      color: #ffffff;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div id="branding">
+        <h1>Dashboard</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="/logout">Logout</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <section id="upload">
+      <h2>Upload New Patch</h2>
+      <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="patch" required>
+        <button type="submit">Upload</button>
+      </form>
+    </section>
+    
+    <section id="patches">
+      <h2>Available Patches</h2>
+      <ul>
+        <% files.forEach(function(file) { %>
+          <li>
+            <%= file %> 
+            <form action="/delete" method="post" style="display: inline;">
+              <input type="hidden" name="filename" value="<%= file %>">
+              <button type="submit">Delete</button>
+            </form>
+          </li>
+        <% }); %>
+      </ul>
+    </section>
+  </div>
+</body>
+</html>

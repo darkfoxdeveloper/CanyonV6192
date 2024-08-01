@@ -1,0 +1,35 @@
+{
+  "Network": {
+    "IPAddress": "0.0.0.0",
+    "Port": 9958,
+    "MaxConn": 500
+  },
+  "RealmNetwork": {
+    "IPAddress": "127.0.0.1",
+    "Port": 9921
+  },
+  "Authentication": {
+    "Identity": "https://sso.ftwmasters.com.br/realms/world-conquer",
+    "Url": "https://dev.auth.api.worldconquer.online",
+    "ClientId": "account-sso",
+    "ClientSecret": "GP0AEm77vY9AtfMWg1c0xYF17SA1G8pP",
+    "Scope": "offline_access"
+  },
+  "Realm": {
+    "Url": "https://dev.realm.api.worldconquer.online"
+  },
+  "Account": {
+    "Url": "https://dev.account.api.worldconquer.online"
+  },
+  "Auth": {
+    "SharedKey": "7oD2bihwK7uQLmM5Q6c6SodWmvNPdxgC",
+    "SharedIV": "6fv44hjpBnD4dg0G"
+  },
+  "Database": {
+    "Hostname": "localhost",
+    "Username": "root",
+    "Password": "co222323",
+    "Schema": "local_account_conquer",
+    "Port": 3306
+  }
+}
