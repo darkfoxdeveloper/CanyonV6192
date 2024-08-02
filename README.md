@@ -13,6 +13,21 @@ When the live server leaves the Beta Stage, we will start keeping stable version
 | [__development__](https://gitlab.com/world-conquer-online/canyon/canyon/-/tree/development) | [![pipeline status](https://gitlab.com/world-conquer-online/canyon/canyon/badges/development/pipeline.svg)](https://gitlab.com/world-conquer-online/canyon/canyon/-/commits/development) | [![Quality Gate Status](https://sonarqube.ftwmasters.com.br/api/project_badges/measure?project=f8fe2c3a-6ab8-4842-93a9-05119f155e8c&metric=alert_status&token=squ_47b1b46df7c1ba81ebae052d4ef90e7334d59058)](https://sonarqube.ftwmasters.com.br/dashboard?id=f8fe2c3a-6ab8-4842-93a9-05119f155e8c) | Targets the official 6090 client. |
 | [__main__](https://gitlab.com/world-conquer-online/canyon/canyon/-/tree/main) | [![pipeline status](https://gitlab.com/world-conquer-online/canyon/canyon/badges/main/pipeline.svg)](https://gitlab.com/world-conquer-online/canyon/canyon/-/commits/main) | Not published | Targets the official 6090 client. |
 
+## Resources
+* [Client V6192](https://mega.nz/file/YMQTGJYa#1Ly5yk7xow0939i6I4TxcBFJc2qNp8OKHsw5PELFnpE) - Client pre-configurated with ConquerLoader (local connection)
+
+## TODO
+- City Teleport items
+- Enemy List
+- Lottery
+- Offline TG
+- Arenas (Incomplete)
+- DailyQuest (Incomplete)
+- Cancel accepted quests
+- Fix Some NPC locations
+- Add some missing npcs for some quests
+- Drop for MoonBox Quest not implemented
+
 ## Getting Started
 
 Before setting up the project, download and install the following:

@@ -54,7 +54,7 @@ namespace Canyon.Login.Sockets.Login.Packets
             }
             if (gameAccount != null)
             {
-                string password = Encoding.UTF8.GetString(Password);// DecryptPassword(Password, client.Seed);
+                string password = DecryptPassword(Password, client.Seed);
                 if (!GameAccount.HashPassword(password, gameAccount.Salt).Equals(gameAccount.Password))
                 {
                     response.Success = false;
